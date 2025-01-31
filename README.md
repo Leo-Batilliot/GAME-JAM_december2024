@@ -8,6 +8,7 @@ The game was made to be really hard ! it's okay and normal to fail !
 if you are on windows
 - download the **`game_jam_windows.exe`** file
 - launch the executable
+  
 if you are on linux  
 - download the **`game_jam_linux.x86_64`** file
 - launch the executable
@@ -21,3 +22,5 @@ Here's a list of keys and their effect :
 Try to experiment with jumps and dashes you might discover hidden mechanics.  
 (if you are stuck on the third level I would recommend looking up Celeste wavedashing)  
 Happy climbing !
+## Preview
+![image](https://github.com/user-attachments/assets/bb9295a0-9856-4b55-9785-8380d244a280)
