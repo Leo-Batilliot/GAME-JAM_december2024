@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpqooqekxeks6"
+path="res://.godot/imported/Fear of the Unknown.mp3-a3c0ee2397df27f19ea2a1ed28b8f12d.mp3str"
+
+[deps]
+
+source_file="res://music/Fear of the Unknown.mp3"
+dest_files=["res://.godot/imported/Fear of the Unknown.mp3-a3c0ee2397df27f19ea2a1ed28b8f12d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

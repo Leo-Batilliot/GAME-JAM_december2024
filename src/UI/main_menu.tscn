@@ -1,0 +1,158 @@
+[gd_scene load_steps=9 format=3 uid="uid://b4tlnmrvjk4pk"]
+
+[ext_resource type="Texture2D" uid="uid://bgjy3a1eg7ryn" path="res://sprites/ui/MainMenu_Sprite.png" id="1_jqxdy"]
+[ext_resource type="Script" path="res://UI/main_menu.gd" id="1_swhjs"]
+[ext_resource type="Texture2D" uid="uid://cy5vkyvmlt3gc" path="res://sprites/ui/ticket.png" id="2_am2yq"]
+[ext_resource type="FontFile" uid="uid://b8378biysqqm4" path="res://sprites/ui/Renogare-Regular.otf" id="3_ov80n"]
+[ext_resource type="AudioStream" uid="uid://dhkyhb0mhdhjj" path="res://music/The Empty Space Above.mp3" id="5_l5yf3"]
+[ext_resource type="AudioStream" uid="uid://bfiukkrfi7prg" path="res://music/ui_main_button_climb.wav" id="6_kif88"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sxp0v"]
+line_spacing = 10.0
+font = ExtResource("3_ov80n")
+outline_size = 2
+outline_color = Color(0, 0.105882, 1, 1)
+
+[sub_resource type="GDScript" id="GDScript_odpyr"]
+script/source = "extends TextureButton
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_swhjs")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 638.0
+offset_bottom = 385.0
+texture = ExtResource("1_jqxdy")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_ov80n")
+text = "
+CELESTE BUT IT'S A GAME JAM
+ON A BUDGET
+AND SOMEHOW SPACE THEMED"
+label_settings = SubResource("LabelSettings_sxp0v")
+horizontal_alignment = 1
+
+[node name="Play Button" type="TextureButton" parent="TextureRect/VBoxContainer/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.326
+anchor_top = 1.425
+anchor_right = 0.666
+anchor_bottom = 1.972
+offset_left = 0.0119934
+offset_top = -0.0500031
+offset_right = 1.09198
+offset_bottom = -0.0320129
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("2_am2yq")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/VBoxContainer/Label/Play Button"]
+modulate = Color(0.239216, 0.588235, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.5
+offset_top = -15.0
+offset_right = 38.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_ov80n")
+theme_override_font_sizes/normal_font_size = 22
+text = "Play"
+text_direction = 3
+
+[node name="Quit Button" type="TextureButton" parent="TextureRect/VBoxContainer/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.332
+anchor_top = 2.179
+anchor_right = 0.671
+anchor_bottom = 2.698
+offset_left = 0.18399
+offset_top = 0.0259857
+offset_right = -0.0979919
+offset_bottom = 0.0119934
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+button_mask = 3
+texture_normal = ExtResource("2_am2yq")
+ignore_texture_size = true
+stretch_mode = 0
+script = SubResource("GDScript_odpyr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect/VBoxContainer/Label/Quit Button"]
+modulate = Color(0.239216, 0.588235, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.513
+anchor_top = 0.5
+anchor_right = 0.513
+anchor_bottom = 0.5
+offset_left = -31.808
+offset_top = -14.5
+offset_right = 28.192
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_ov80n")
+theme_override_font_sizes/normal_font_size = 22
+text = "Quit"
+text_direction = 3
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 1
+stream = ExtResource("5_l5yf3")
+volume_db = -16.323
+autoplay = true
+max_polyphony = 2
+playback_type = 1
+parameters/looping = true
+
+[node name="Click_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_kif88")
+volume_db = -17.723
+
+[connection signal="pressed" from="TextureRect/VBoxContainer/Label/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/Label/Quit Button" to="." method="_on_quit_button_pressed"]

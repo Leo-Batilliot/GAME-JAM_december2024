@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6kogeg7riro2"]
+
+[ext_resource type="Script" path="res://scenes/entities/finish_zone.gd" id="1_5fo4n"]
+
+[node name="Finish_zone" type="Area2D"]
+collision_mask = 8
+script = ExtResource("1_5fo4n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://c4mb4v2py0f3m"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_eku5k"]
+[ext_resource type="PackedScene" uid="uid://b4tlnmrvjk4pk" path="res://UI/main_menu.tscn" id="1_gnmfg"]
+[ext_resource type="Script" path="res://scripts/LevelData.gd" id="2_ahtrx"]
+[ext_resource type="PackedScene" uid="uid://c1het5hj4sirh" path="res://UI/level_menu.tscn" id="4_8c88s"]
+[ext_resource type="Script" path="res://UI/level_menu.gd" id="5_6avgf"]
+
+[sub_resource type="Resource" id="Resource_vtoko"]
+script = ExtResource("2_ahtrx")
+level_id = 2
+level_name = "X-mas"
+level_completed = false
+level_unlocked = true
+level_path = "level2"
+level_to_unlock_id = 3
+
+[sub_resource type="Resource" id="Resource_hfloo"]
+script = ExtResource("2_ahtrx")
+level_id = 3
+level_name = "Ascension"
+level_completed = false
+level_unlocked = false
+level_path = "level3"
+level_to_unlock_id = 4
+
+[sub_resource type="Resource" id="Resource_oijcw"]
+script = ExtResource("2_ahtrx")
+level_id = 4
+level_name = "Eclipse"
+level_completed = false
+level_unlocked = false
+level_path = "level4"
+level_to_unlock_id = -1
+
+[node name="Main" type="Node"]
+script = ExtResource("1_eku5k")
+available_levels = Array[ExtResource("2_ahtrx")]([SubResource("Resource_vtoko"), SubResource("Resource_hfloo"), SubResource("Resource_oijcw")])
+
+[node name="UIMain" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="UIMain" instance=ExtResource("1_gnmfg")]
+
+[node name="LevelMenu" parent="UIMain" instance=ExtResource("4_8c88s")]
+script = ExtResource("5_6avgf")
+
+[node name="2DScene" type="Node2D" parent="."]

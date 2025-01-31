@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c02u2fklmylvn"]
+
+[ext_resource type="FontFile" uid="uid://b8378biysqqm4" path="res://sprites/ui/Renogare-Regular.otf" id="1_fay72"]
+[ext_resource type="Script" path="res://scenes/entities/level_button.gd" id="1_mv6io"]
+[ext_resource type="AudioStream" uid="uid://dsj2xob7p2ri6" path="res://music/ui_main_button_select.wav" id="2_lgh1y"]
+
+[node name="LevelButton" type="Button"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_fay72")
+script = ExtResource("1_mv6io")
+
+[node name="Click_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_lgh1y")
+volume_db = -9.327
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1het5hj4sirh"]
+
+[ext_resource type="Texture2D" uid="uid://bgjy3a1eg7ryn" path="res://sprites/ui/MainMenu_Sprite.png" id="1_px02o"]
+[ext_resource type="PackedScene" uid="uid://c02u2fklmylvn" path="res://scenes/entities/level_button.tscn" id="2_388nn"]
+
+[node name="LevelMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 638.0
+offset_bottom = 385.0
+texture = ExtResource("1_px02o")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 9.0
+offset_right = 526.0
+offset_bottom = 348.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="LevelButton4" parent="TextureRect/MarginContainer/VBoxContainer" instance=ExtResource("2_388nn")]
+layout_mode = 2
+level_id = 2
+
+[node name="LevelButton" parent="TextureRect/MarginContainer/VBoxContainer" instance=ExtResource("2_388nn")]
+layout_mode = 2
+level_id = 3
+
+[node name="LevelButton3" parent="TextureRect/MarginContainer/VBoxContainer" instance=ExtResource("2_388nn")]
+layout_mode = 2
+level_id = 4
